@@ -1,10 +1,10 @@
-module rca_4bit(
+module rca_4_bit(
 	//4-bit inputs
 	input logic [3:0] A,
 	input logic [3:0] B,
 	input logic Cin,
 	//maximum of 5-bit output
-	output logic S [4:0]
+	output logic [4:0] S
 );
 	logic [3:0] carries;
 	
