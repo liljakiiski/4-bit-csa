@@ -1,4 +1,4 @@
-module tb_csa_4bit;
+module tb_csa_4_bit;
 	//To delay
 	localparam int DELAY = 10;
 
@@ -7,12 +7,15 @@ module tb_csa_4bit;
 	logic[3:0] C;
 	logic[4:0] Result;
 
-	csa_4bit dut(.A(A), .B(B), .C(C), .Sum(Result));
+	csa_4_bit dut(.A(A), .B(B), .C(C), .Sum(Result));
 
 	int numFailed;
 
 	//4096 different possible combinations
 	initial begin
+		$dumfile("obj_dir/waveform.fst");
+		$dumpvars(0, tb_csa_4_bit);
+	
 		for (int a = 0; a < 16; a++) begin
 			for (int b = 0; b < 16; b++) begin
 				for (int c = 0; c < 16; c++) begin
@@ -43,5 +46,5 @@ module tb_csa_4bit;
 	end
 	
 	$display("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
-
+	$finish;
 endmodule
